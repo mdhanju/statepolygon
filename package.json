@@ -1,0 +1,29 @@
+{
+  "name": "statepolygon",
+  "version": "1.0.0",
+  "description": "US and canada state polygon - state outline",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mdhanju/statepolygon.git"
+  },
+  "keywords": [
+    "node.js",
+    "maps",
+    "polygon",
+    "state",
+    "outline",
+    "coordinates",
+    "latitude",
+    "longitude."
+  ],
+  "author": "Maninder Dhanju <singhmaninder21@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mdhanju/statepolygon/issues"
+  },
+  "homepage": "https://github.com/mdhanju/statepolygon#readme"
+}
