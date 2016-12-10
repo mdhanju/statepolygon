@@ -1,18 +1,49 @@
 'use strict';
 
-var allStates = require('../data/allStates');
+const allStates = require('../data/allStates');
+const statePolygon = require('../data/statePolygon');
 
+
+/*
+ ** Accepts state name
+ ** {string|array} state or array of state names
+ ** {string|array} return string or array of state abbreviations
+ */
+const stateNamesToAbbreviations = function(params) {
+    var result = [];
+    if (!params) {
+        return { status: 'invalid entry' };
+    } else if (typeof params === 'string') {
+        allStates.forEach(function(item1) {
+            if (params.toUpperCase() === item1.name.toUpperCase()) {
+                result = item1.short;
+            }
+        })
+    } else {
+        params.forEach(function(item) {
+            allStates.forEach(function(item1) {
+                if (item.toUpperCase() === item1.name.toUpperCase()) {
+                    result.push(item1.short)
+                }
+            })
+        })
+
+    }
+    return result;
+};
 
 /*
  ** Accepts state abbreviation
  ** {string|array} state or array of states
- **	{object|array} return object or array of polygons
+ ** {object|array} return object or array of polygons
  */
-const fromStateAbbreviations = function(params) {
+const statePolygonFromAbb = function(params) {
     var result = [];
-    if (typeof params === 'string') {
+    if (!params) {
+        return { status: 'invalid entry' };
+    } else if (typeof params === 'string') {
         statePolygon.forEach(function(item) {
-            if (stateKey === item.state) {
+            if (params.toUpperCase() === item.state.toUpperCase()) {
                 result = item;
             }
         })
@@ -20,7 +51,7 @@ const fromStateAbbreviations = function(params) {
 
         params.forEach(function(state) {
             statePolygon.forEach(function(item) {
-                if (state === item.state) {
+                if (state.toUpperCase() === item.state.toUpperCase()) {
                     result.push(item)
                 }
             })
@@ -34,38 +65,30 @@ const fromStateAbbreviations = function(params) {
 /*
  ** Accepts state names
  ** {string|array} state or array of states
- **	{object|array} return object or array of polygons
+ ** {object|array} return object or array of polygons
  */
-const fromStateNames = function(params) {
+const statePolygonFromNames = function(params) {
 
     var result = [];
-    if (typeof params === 'string') {
-        var finalState = '';
-        allStates.forEach(function(item1) {
-            if (finalState === item1.name) {
-                finalState = item1.short;
-            }
-        })
+    
+    if (!params) {
+        return { status: 'invalid entry' };
+    } else if (typeof params === 'string') {
+
+        var finalState = stateNamesToAbbreviations(params);
 
         statePolygon.forEach(function(item) {
-            if (finalState === item.state) {
+            if (finalState.toUpperCase() === item.state.toUpperCase()) {
                 result = item;
             }
         })
     } else {
 
-        var finalStates = [];
-        params.forEach(function(item) {
-            allStates.forEach(function(item1) {
-                if (item === item1.name) {
-                    finalStates.push(item1.short)
-                }
-            })
-        })
+        var finalStates = stateNamesToAbbreviations(params);
 
         finalStates.forEach(function(state) {
             statePolygon.forEach(function(item) {
-                if (state === item.state) {
+                if (state.toUpperCase() === item.state.toUpperCase()) {
                     result.push(item)
                 }
             })
@@ -76,5 +99,6 @@ const fromStateNames = function(params) {
 };
 
 
-module.exports.fromStateAbbreviations = fromStateAbbreviations;
-module.exports.fromStateNames = fromStateNames;
+module.exports.stateNamesToAbbreviations = stateNamesToAbbreviations;
+module.exports.statePolygonFromAbb = statePolygonFromAbb;
+module.exports.statePolygonFromNames = statePolygonFromNames;
