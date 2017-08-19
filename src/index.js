@@ -102,4 +102,4 @@ const statePolygonFromNames = function(params) {
 module.exports.stateNamesToAbbreviations = stateNamesToAbbreviations;
 module.exports.statePolygonFromAbb = statePolygonFromAbb;
 module.exports.statePolygonFromNames = statePolygonFromNames;
-module.exports.statePolygon = statePolygon;
+module.exports.allPolygon = statePolygon;

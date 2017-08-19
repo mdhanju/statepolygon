@@ -43,9 +43,9 @@ console.log('reqStatePoly :: ', reqStatePoly);
 
 ```bash
 
-import { statePolygon } from 'statepolygon'
+import { allPolygon } from 'statepolygon'
 
-const allStatesPolygon = statePolygon();
+const allStatesPolygon = allPolygon();
 
 console.log('reqStatePoly :: ', allStatesPolygon); // Array of all states poygon
 
