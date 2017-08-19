@@ -40,3 +40,13 @@ const reqStatePoly = statePolygonFromAbb(['California', 'new york']);
 console.log('reqStatePoly :: ', reqStatePoly);
 
 ```
+
+```bash
+
+import { statePolygon } from 'statepolygon'
+
+const allStatesPolygon = statePolygon();
+
+console.log('reqStatePoly :: ', allStatesPolygon); // Array of all states poygon
+
+```

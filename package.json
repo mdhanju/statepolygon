@@ -1,6 +1,6 @@
 {
   "name": "statepolygon",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "US and canada state polygon - state outline",
   "main": "index.js",
   "scripts": {

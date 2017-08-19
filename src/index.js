@@ -70,7 +70,7 @@ const statePolygonFromAbb = function(params) {
 const statePolygonFromNames = function(params) {
 
     var result = [];
-    
+
     if (!params) {
         return { status: 'invalid entry' };
     } else if (typeof params === 'string') {
@@ -102,3 +102,4 @@ const statePolygonFromNames = function(params) {
 module.exports.stateNamesToAbbreviations = stateNamesToAbbreviations;
 module.exports.statePolygonFromAbb = statePolygonFromAbb;
 module.exports.statePolygonFromNames = statePolygonFromNames;
+module.exports.statePolygon = statePolygon;
